@@ -19,7 +19,7 @@ class Todo(db.Model):
 
 
 # Create index route so when go to URL, don't 404
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
     # Define what happens in this case
     return render_template('index.html')  # Don't need to specify templates folder
