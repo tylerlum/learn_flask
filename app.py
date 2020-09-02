@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 # Create flask app
 app = Flask(__name__)
@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Define what happens in this case
-    return "Hello, World!"
+    return render_template('index.html')  # Don't need to specify templates folder
 
 # Run the flask app
 if __name__ == "__main__":
