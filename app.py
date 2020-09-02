@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -21,8 +21,11 @@ class Todo(db.Model):
 # Create index route so when go to URL, don't 404
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    # Define what happens in this case
-    return render_template('index.html')  # Don't need to specify templates folder
+    if request.method == 'POST':
+        return "Hello"
+    else:
+        # Define what happens in this case
+        return render_template('index.html')  # Don't need to specify templates folder
 
 # Run the flask app
 if __name__ == "__main__":
